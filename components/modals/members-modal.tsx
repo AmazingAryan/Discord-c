@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { UserAvatar } from "@/components/user-avatar";
-import { MoreVertical, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
+import { Check, Gavel, Loader2, MoreVertical, Shield, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import { useState } from "react";
 
 import { 
@@ -28,7 +28,8 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuTrigger,
-  DropdownMenuSubTrigger
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal
 } from "@/components/ui/dropdown-menu";
 
 const roleIconMap = {
@@ -48,7 +49,7 @@ export const MembersModal = () => {
     const {server} = data as {server: ServerWithMembersWithProfiles};
     
   
-
+    
     
 
 
@@ -90,10 +91,36 @@ export const MembersModal = () => {
                         <ShieldQuestion className="w-4 h-4 mr-2" />
                         <span>Role</span>
                       </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                          <DropdownMenuItem>
+                            <Shield className="h-4 w-4 mr-2"/>
+                            Guest
+                            {member.role ==="GUEST" && (
+                              <Check className="h-4 w-4 ml-auto"/>
+                            ) }
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <ShieldCheck className="h-4 w-4 mr-2"/>
+                            Moderator
+                            {member.role ==="MODERATOR" && (
+                              <Check className="h-4 w-4 ml-auto"/>
+                            ) }
+                          </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
                     </DropdownMenuSub>
+                    <DropdownMenuSeparator/>
+                      <DropdownMenuItem>
+                        <Gavel className="h-4 w-4 mr-2"/>
+                            Kick
+                      </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
+            )}
+            {loadingId === member.id && (
+              <Loader2 className="animate-spin text-zinc-500 ml-auto w-4 h-4"/>
             )}
           </div>
         ))}
