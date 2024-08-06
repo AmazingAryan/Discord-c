@@ -6,11 +6,11 @@ import { NextApiResponseServerIo } from "@/types";
 
 export const config = {
     api: {
-        bodyParses: false,
+        bodyParser: false,
     },
 };
 
-const ioHandles = (req: NextApiRequest, res: NextApiResponseServerIo) => {
+const ioHandler = (req: NextApiRequest, res: NextApiResponseServerIo) => {
     if(!res.socket.server.io){
         const path = "/api/socket/io";
         const httpServer: NetServer = res.socket.server as any;
@@ -23,3 +23,5 @@ const ioHandles = (req: NextApiRequest, res: NextApiResponseServerIo) => {
 
     res.end();
 }
+
+export default ioHandler;
