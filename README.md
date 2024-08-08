@@ -1,3 +1,26 @@
+## GREETINGS
+
+This project was created as general chat application similar to discord.
+1. You can create servers.
+2. Create Channels.
+3. Text messages.
+4. Audio call.
+5. Video call.
+
+## Third-Party Libraries used
+  I have used clerk for login and signin authentication:
+- https://clerk.com/docs/quickstarts/nextjs
+
+  For uploading images and files, Uploadthing was used:
+- https://uploadthing.com
+
+  For Video and audio calls, LiveKit:
+- https://docs.livekit.io/realtime/
+
+  For Realtime messages rendering, socket.io
+
+  For Deployment Railway
+- https://railway.app/
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -31,11 +54,10 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Checkout LIVE APP: https://discord-c-production.up.railway.app/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
 
 A smol change, just to maintain my github streak:
 -1
