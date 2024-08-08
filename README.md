@@ -8,19 +8,19 @@ This project was created as general chat application similar to discord.
 5. Video call.
 
 ## Third-Party Libraries used
-  I have used clerk for login and signin authentication:
-- https://clerk.com/docs/quickstarts/nextjs
+- I have used clerk for login and signin authentication:
+  https://clerk.com/docs/quickstarts/nextjs
 
-  For uploading images and files, Uploadthing was used:
-- https://uploadthing.com
+- For uploading images and files, Uploadthing was used:
+  https://uploadthing.com
 
-  For Video and audio calls, LiveKit:
-- https://docs.livekit.io/realtime/
+- For Video and audio calls, LiveKit:
+  https://docs.livekit.io/realtime/
 
-  For Realtime messages rendering, socket.io
+- For Realtime messages rendering, socket.io
 
-  For Deployment Railway
-- https://railway.app/
+- For Deployment Railway
+  https://railway.app/
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
