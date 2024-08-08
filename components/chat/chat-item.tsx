@@ -62,6 +62,7 @@ export const ChatItem = ({
   const { onOpen } = useModal();
   const params = useParams();
   const router = useRouter();
+
   const onMemberClick = () => {
     if(member.id === currentMember.id){
       return;
@@ -70,21 +71,13 @@ export const ChatItem = ({
     router.push(`/servers/${params?.serverId}/conversations/${member.id}`);
   }
 
-  useEffect(()=>{
-    const handleKeyDown = (event: any) => {
-      if(event.key === "Escape" || event.keyCode === 27){
-        setIsEditing(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  })
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       content: content,
     },
   });
+
 
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -102,6 +95,17 @@ export const ChatItem = ({
       console.log(error);
     }
   };
+
+  useEffect(()=>{
+    const handleKeyDown = (event: any) => {
+      if(event.key === "Escape" || event.keyCode === 27){
+        setIsEditing(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+  
 
   useEffect(() => {
     form.reset({
